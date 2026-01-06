@@ -8,6 +8,7 @@ const CartPage = () => {
 
     useEffect(() => {
         setCart(getCart());
+        document.title = `Your cart - DD Bangles`
     }, []);
 
     const updateQty = (id: number, delta: number) => {

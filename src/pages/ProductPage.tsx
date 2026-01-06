@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { products } from "../data/product_data";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 
 const ProductPage = () => {
@@ -21,6 +21,10 @@ const ProductPage = () => {
     if (!product) {
         return <p className="p-4">Product not found</p>;
     }
+
+    useEffect(() => {
+        document.title = `Buy ${productName} at DD Bangles`
+    }, [])
 
     return (
         <main className="max-w-md mx-auto bg-white min-h-screen p-4 flex flex-col items-start text-left">
@@ -99,6 +103,7 @@ const ProductPage = () => {
                         : "bg-gray-300 cursor-not-allowed"
                     }
         `}
+                onClick={() => window.location.href = "/cart"}
             >
                 Add to cart
             </button>

@@ -20,6 +20,7 @@ const CheckoutPage = () => {
 
     useEffect(() => {
         setCart(getCart());
+        document.title = `Checkout your orders at DD Bangles`
     }, []);
 
     const subtotal = cart.reduce(

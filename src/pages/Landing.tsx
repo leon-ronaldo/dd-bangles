@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../components/Footer";
 
 import keys from "../utils/keys";
 
 const Landing: React.FC = () => {
+    
+    useEffect(() => {
+        document.title = `Onboarding - DD Bangles`
+    }, [])
+
     return (
         <div className="min-h-screen bg-[#f6f7f8] flex flex-col items-center justify-between px-4 py-6">
 

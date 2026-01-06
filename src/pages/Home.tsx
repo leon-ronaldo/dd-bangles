@@ -9,6 +9,7 @@ import { useSearch } from "../contexts/SearchContext";
 import Lottie from "lottie-react";
 
 import emptyAnimation from "../assets/animations/no-orders-animation.json";
+import { useEffect } from "react";
 
 const EmptySearch = () => {
     return (
@@ -46,6 +47,10 @@ export default function HomePage() {
     const filteredProducts = products.filter((p) =>
         p.name.toLowerCase().includes(query.toLowerCase())
     );
+
+    useEffect(() => {
+        document.title = `Buy Bangles at DD Bangles`
+    }, [])
 
     return <main className="flex flex-col items-center p-4 min-h-screen gap-4">
         <Navbar />
