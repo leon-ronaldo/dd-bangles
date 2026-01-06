@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/Home'
-import { useEffect } from 'react'
 import ProductPage from './pages/ProductPage'
 import CartPage from './pages/CartPage'
 import CheckoutPage from './pages/CheckoutPage'
