@@ -3,8 +3,6 @@ import { type CartItem } from "../types/CartItem";
 import { getCart, saveCart } from "../utils/cart";
 import Navbar from "../components/Navbar";
 
-import cartIcon from "../assets/icons/cart.svg"
-
 const CartPage = () => {
     const [cart, setCart] = useState<CartItem[]>([]);
 

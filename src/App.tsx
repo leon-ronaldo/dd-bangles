@@ -9,14 +9,6 @@ import { SearchProvider } from './contexts/SearchContext'
 import Landing from './pages/Landing'
 import Root from './pages/Root'
 
-
-function Rerouter() {
-  useEffect(() => {
-    window.location.href = "/"
-  }, [])
-  return <div />
-}
-
 function App() {
 
   return (
