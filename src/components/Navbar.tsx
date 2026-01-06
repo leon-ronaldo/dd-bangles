@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       
       {/* Logo */}
       <img
-        src="/images/logo.jpeg"
+        src="/images/logo.png"
         alt="DD Bangles"
         className="h-12 w-auto object-contain"
       />

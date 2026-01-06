@@ -5,7 +5,7 @@ const Footer = ({ alt }: { alt?: boolean }) => {
 
                 {/* Logo */}
                 <img
-                    src="/images/logo.jpeg"
+                    src="/images/logo.png"
                     alt="DD Bangles"
                     className="h-10 object-contain"
                 />
