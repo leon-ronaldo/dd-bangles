@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import HeroSection from "../components/HeroSection";
 import Navbar from "../components/Navbar";
 import ProductCard from "../components/ProductCard";
@@ -6,89 +6,59 @@ import { products } from "../data/product_data";
 import Testimonials from "../components/Testimonials";
 import Footer from "../components/Footer";
 import { useSearch } from "../contexts/SearchContext";
-import Lottie from "lottie-react";
-
-import emptyAnimation from "../assets/animations/no-orders-animation.json";
-import { useEffect } from "react";
-
-const EmptySearch = () => {
-    return (
-        <div className="flex flex-col items-center justify-center py-16 text-center">
-
-            <Lottie
-                animationData={emptyAnimation}
-                loop
-                className="w-48 h-48"
-            />
-
-            <h3 className="text-lg font-medium text-gray-900 mt-4">
-                No products found
-            </h3>
-
-            <p className="text-sm text-gray-500 mt-1 max-w-xs">
-                Try searching with a different name or keyword.
-            </p>
-        </div>
-    );
-};
+import { heroslides } from "../data/hero_slides";
+import { handleViewProduct } from "../utils/misc";
+import EmptyResult from "../components/EmptyResultMessage";
 
 export default function HomePage() {
-    const navigate = useNavigate();
+  const { query, setQuery, isSearchOpen } = useSearch();
 
-    const { query, setQuery, isSearchOpen } = useSearch();
+  const filteredProducts = products.filter((p) =>
+    p.name.toLowerCase().includes(query.toLowerCase())
+  );
 
-    const slugify = (text: string) =>
-        text.toLowerCase().replace(/\s+/g, "-");
+  useEffect(() => {
+    document.title = "Buy Bangles at DD Bangles";
+  }, []);
 
-    const handleViewProduct = (product: any) => {
-        navigate(`/product/${slugify(product.name)}`);
-    };
+  return (
+    <main className="flex flex-col items-center min-h-screen">
+      <Navbar />
+      <HeroSection slides={heroslides} />
 
-    const filteredProducts = products.filter((p) =>
-        p.name.toLowerCase().includes(query.toLowerCase())
-    );
-
-    useEffect(() => {
-        document.title = `Buy Bangles at DD Bangles`
-    }, [])
-
-    return <main className="flex flex-col items-center p-4 min-h-screen gap-4">
-        <Navbar />
-        <HeroSection image="/images/hero-image-1.jpg" />
-        <div className="flex justify-between items-center w-full pt-6">
-            <p className="text-xl"> Products </p>
-            {/* <p className="text-sm"> View all </p> */}
+      {/* Products Section */}
+      <section className="w-full max-w-7xl px-4 sm:px-6 lg:px-8 pt-8">
+        <div className="flex items-center justify-between mb-4">
+          <p className="text-lg sm:text-xl font-medium">Products</p>
         </div>
 
         {isSearchOpen && (
-            <input
-                type="text"
-                placeholder="Search bangles..."
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                className="w-full px-4 py-3 border rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-black"
-            />
+          <input
+            type="text"
+            placeholder="Search bangles..."
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            className="w-full mb-6 px-4 py-3 border rounded-xl text-sm focus:outline-none focus:ring-1 focus:ring-black"
+          />
         )}
 
+        {query && filteredProducts.length === 0 ? (
+          <EmptyResult title="No products found" message="Try searching with a different name or keyword." />
+        ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {(query ? filteredProducts : products).map((item, key) => (
+              <ProductCard
+                key={key}
+                product={item}
+                onViewProduct={handleViewProduct}
+              />
+            ))}
+          </div>
+        )}
+      </section>
 
-        <section className="w-full pb-12">
-            {query && filteredProducts.length === 0 ? (
-                <EmptySearch />
-            ) : (
-                <div className="grid grid-cols-2 gap-4">
-                    {(query ? filteredProducts : products).map((item, key) => (
-                        <ProductCard
-                            key={key}
-                            product={item}
-                            onViewProduct={handleViewProduct}
-                        />
-                    ))}
-                </div>
-            )}
-        </section>
-
-
-        <Testimonials />
-        <Footer />
+      <Testimonials />
+      <Footer />
     </main>
+  );
 }

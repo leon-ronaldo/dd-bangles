@@ -7,12 +7,17 @@ import CheckoutPage from './pages/CheckoutPage'
 import { SearchProvider } from './contexts/SearchContext'
 import Landing from './pages/Landing'
 import Root from './pages/Root'
+import { ToastContainer } from 'react-toast'
+import FavoritesPage from './pages/Favourites'
 
 function App() {
 
   return (
     <>
       <SearchProvider>
+        <div className='fixed z-9999'>
+          <ToastContainer position={"top-center"} />
+        </div>
         <BrowserRouter>
           <Routes>
             {/* SMART ENTRY POINT */}
@@ -20,6 +25,7 @@ function App() {
 
             {/* ACTUAL PAGES */}
             <Route path="/home" element={<HomePage />} />
+            <Route path="/favorite" element={<FavoritesPage />} />
             <Route path="/onboarding" element={<Landing />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />

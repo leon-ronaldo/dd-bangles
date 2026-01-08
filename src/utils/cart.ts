@@ -1,33 +1,63 @@
 import { type CartItem } from "../types/CartItem";
-import { products } from "../data/product_data";
+import keys from "./keys";
+import type { Product } from "../types/Product";
 
-import keys from "./keys"
+/* ---------------- CART ---------------- */
 
-/**
- * Get cart from localStorage
- * Fallback: create dummy cart using products
- */
 export const getCart = (): CartItem[] => {
-    const stored = localStorage.getItem(keys.CART_KEY);
-
-    if (stored) {
-        return JSON.parse(stored);
-    }
-
-    // Dummy data for now
-    const dummyCart: CartItem[] = products.slice(0, 3).map((p, index) => ({
-        id: p.id,
-        name: p.name,
-        price: p.price,
-        image: p.image,
-        qty: index + 1,
-        size: p.sizes?.[0]
-    }));
-
-    localStorage.setItem(keys.CART_KEY, JSON.stringify(dummyCart));
-    return dummyCart;
+  const stored = localStorage.getItem(keys.CART_KEY);
+  return JSON.parse(stored ?? "[]");
 };
 
 export const saveCart = (cart: CartItem[]) => {
-    localStorage.setItem(keys.CART_KEY, JSON.stringify(cart));
+  localStorage.setItem(keys.CART_KEY, JSON.stringify(cart));
+};
+
+export const addToCart = (item: CartItem) => {
+  const cart = getCart();
+
+  const existingIndex = cart.findIndex(
+    (c) => c.id === item.id && c.size === item.size
+  );
+
+  if (existingIndex !== -1) {
+    cart[existingIndex].qty += item.qty;
+  } else {
+    cart.push(item);
+  }
+
+  saveCart(cart);
+};
+
+/* ---------------- FAVOURITES ---------------- */
+
+export const getFavourites = (): Product[] => {
+  const stored = localStorage.getItem(keys.FAVOURITES);
+  return JSON.parse(stored ?? "[]");
+};
+
+export const saveFavourites = (favourites: Product[]) => {
+  localStorage.setItem(keys.FAVOURITES, JSON.stringify(favourites));
+};
+
+export const addToFavourites = (item: Product) => {
+  const favourites = getFavourites();
+
+  const exists = favourites.some((fav) => fav.id === item.id);
+  if (exists) return; // prevent duplicates
+
+  favourites.push(item);
+  saveFavourites(favourites);
+};
+
+export const removeFromFavourites = (item: Product) => {
+  const favourites = getFavourites().filter(
+    (fav) => fav.id !== item.id
+  );
+
+  saveFavourites(favourites);
+};
+
+export const isFavourite = (productId: number): boolean => {
+  return getFavourites().some((fav) => fav.id === productId);
 };
