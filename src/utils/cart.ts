@@ -13,6 +13,10 @@ export const saveCart = (cart: CartItem[]) => {
   localStorage.setItem(keys.CART_KEY, JSON.stringify(cart));
 };
 
+export const clearCart = () => {
+  localStorage.removeItem(keys.CART_KEY);
+};
+
 export const addToCart = (item: CartItem) => {
   const cart = getCart();
 

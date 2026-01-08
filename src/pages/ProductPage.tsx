@@ -6,8 +6,8 @@ import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import type { CartItem } from "../types/CartItem";
 import { addToCart } from "../utils/cart";
-import { toast } from "react-toast";
 import { handleViewProduct } from "../utils/misc";
+import toast from "react-hot-toast";
 
 const ProductPage = () => {
     const { productName } = useParams();

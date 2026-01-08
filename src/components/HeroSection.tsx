@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { type HeroSlide } from "../types/HeroSlide";
 import { handleViewProduct } from "../utils/misc";
 

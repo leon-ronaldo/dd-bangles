@@ -7,8 +7,8 @@ import CheckoutPage from './pages/CheckoutPage'
 import { SearchProvider } from './contexts/SearchContext'
 import Landing from './pages/Landing'
 import Root from './pages/Root'
-import { ToastContainer } from 'react-toast'
 import FavoritesPage from './pages/Favourites'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
 
@@ -16,7 +16,15 @@ function App() {
     <>
       <SearchProvider>
         <div className='fixed z-9999'>
-          <ToastContainer position={"top-center"} />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 2000,
+              style: {
+                fontSize: "14px",
+              },
+            }}
+          />
         </div>
         <BrowserRouter>
           <Routes>

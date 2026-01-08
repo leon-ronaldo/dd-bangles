@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { type CartItem } from "../types/CartItem";
-import { getCart } from "../utils/cart";
+import { clearCart, getCart } from "../utils/cart";
 import { type CheckoutForm } from "../types/CheckoutForm";
 import Navbar from "../components/Navbar";
+import { sendOrderToWhatsApp } from "../types/whatsapp";
+import toast from "react-hot-toast";
 
 /* ------------------ STEPS ------------------ */
 const CheckoutSteps = () => (
@@ -106,20 +108,17 @@ const CheckoutPage = () => {
       email: true,
     });
 
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
+    if (Object.keys(validationErrors).length > 0) return;
 
-    // 🚧 FINAL ORDER LOGIC GOES HERE 🚧
-    // Example:
-    // sendOrderToWhatsApp(form, cart, total);
+    toast.success("Redirecting to WhatsApp…");
 
-    console.log("ORDER READY", {
-      customer: form,
-      cart,
-      total,
-    });
+    setTimeout(() => {
+      sendOrderToWhatsApp(form, cart, total);
+      clearCart();
+    }, 800);
   };
+
+
 
   /* ------------------ RENDER ------------------ */
   return (
@@ -183,9 +182,8 @@ const CheckoutPage = () => {
               <input
                 name="address1"
                 placeholder="House number and street name *"
-                className={`input ${
-                  errors.address1 ? "border-red-400" : ""
-                }`}
+                className={`input ${errors.address1 ? "border-red-400" : ""
+                  }`}
                 onChange={handleChange}
                 onBlur={handleBlur}
               />
