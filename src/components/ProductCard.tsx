@@ -32,7 +32,7 @@ const ProductCard: React.FC<Props> = ({ product, onViewProduct }) => {
       </button>
 
       {/* Product Image */}
-      <div className="aspect-[3/4] w-full overflow-hidden rounded-lg">
+      <div className="flex-1 w-full overflow-hidden rounded-lg">
         <img
           src={product.image}
           alt={product.name}

@@ -3,7 +3,9 @@ import homeIcon from "../assets/icons/home.svg";
 import cartIcon from "../assets/icons/cart.svg";
 import searchIcon from "../assets/icons/search.svg";
 import favIcon from "../assets/icons/fav.svg";
+import infoIcon from "../assets/icons/info.svg";
 import { useSearch } from "../contexts/SearchContext";
+
 
 const Navbar: React.FC = () => {
   const { isSearchOpen, setIsSearchOpen } = useSearch();
@@ -23,7 +25,7 @@ const Navbar: React.FC = () => {
           {/* Home */}
           <button
             onClick={() => (window.location.href = "/")}
-            className="flex items-center gap-2 text-gray-700 hover:text-black"
+            className="flex items-center gap-2 text-gray-700 hover:text-black hover:cursor-pointer"
           >
             <img src={homeIcon} className="w-6 h-6" />
             <span className="hidden md:inline text-sm font-medium">Home</span>
@@ -32,7 +34,7 @@ const Navbar: React.FC = () => {
           {/* Cart */}
           <button
             onClick={() => (window.location.href = "/cart")}
-            className="flex items-center gap-2 text-gray-700 hover:text-black"
+            className="flex items-center gap-2 text-gray-700 hover:text-black hover:cursor-pointer"
           >
             <img src={cartIcon} className="w-6 h-6" />
             <span className="hidden md:inline text-sm font-medium">Cart</span>
@@ -41,7 +43,7 @@ const Navbar: React.FC = () => {
           {/* Search */}
           <button
             onClick={() => setIsSearchOpen(!isSearchOpen)}
-            className="flex items-center gap-2 text-gray-700 hover:text-black"
+            className="flex items-center gap-2 text-gray-700 hover:text-black hover:cursor-pointer"
           >
             <img src={searchIcon} className="w-6 h-6" />
             <span className="hidden md:inline text-sm font-medium">Search</span>
@@ -50,11 +52,21 @@ const Navbar: React.FC = () => {
           {/* Search */}
           <button
             onClick={() => (window.location.href = "/favorite")}
-            className="flex items-center gap-2 text-gray-700 hover:text-black"
+            className="flex items-center gap-2 text-gray-700 hover:text-black hover:cursor-pointer"
           >
             <img src={favIcon} className="w-6 h-6" />
             <span className="hidden md:inline text-sm font-medium">Favorites</span>
           </button>
+
+          {/* About */}
+          <button
+            onClick={() => (window.location.href = "/about")}
+            className="flex items-center gap-2 text-gray-700 hover:text-black hover:cursor-pointer"
+          >
+            <img src={infoIcon} className="w-6 h-6" />
+            <span className="hidden md:inline text-sm font-medium">About</span>
+          </button>
+
         </div>
       </div>
     </nav>

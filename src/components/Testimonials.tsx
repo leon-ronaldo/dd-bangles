@@ -2,8 +2,8 @@ import { testimonials } from "../data/testimonial_data";
 
 const Testimonials = () => {
   return (
-    <section className="w-full overflow-hidden sm:pt-18 mt-8">
-      <span className="bg-black h-px flex mb-18 mx-[20%]" />
+    <section className="w-full overflow-hidden sm:pt-18 mt-22">
+      <span className="bg-black h-px flex mb-10 mx-[20%]" />
       
       {/* Section Header */}
       <div className="mx-auto max-w-4xl px-4 text-center mb-8 sm:mb-12">

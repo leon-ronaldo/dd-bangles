@@ -118,7 +118,7 @@ const CartPage = () => {
                         </div>
 
                         <button
-                            className="mt-6 w-full bg-black text-white py-3 rounded-xl text-sm hover:opacity-90"
+                            className={`mt-6 w-full bg-black text-white py-3 rounded-xl text-sm hover:opacity-90 ${cart.length === 0 && "opacity-60"}`}
                             onClick={() => (window.location.href = "/checkout")}
                             disabled={cart.length === 0}
                         >

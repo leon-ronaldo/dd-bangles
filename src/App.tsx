@@ -9,6 +9,7 @@ import Landing from './pages/Landing'
 import Root from './pages/Root'
 import FavoritesPage from './pages/Favourites'
 import { Toaster } from 'react-hot-toast'
+import About from './pages/About'
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/onboarding" element={<Landing />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/about" element={<About />} />
             <Route path="/product/:productName" element={<ProductPage />} />
 
             {/* FALLBACK */}
