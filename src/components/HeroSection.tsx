@@ -22,7 +22,6 @@ export default function HeroSection({ slides, interval = 4000 }: Props) {
   return (
     <section className="flex w-full px-4 sm:px-6 lg:px-8">
       <div
-        onClick={handleViewProduct}
         className="
         relative w-full cursor-pointer overflow-hidden rounded-2xl
         h-52 sm:h-64 md:h-72 lg:h-80 xl:h-96 
@@ -48,6 +47,7 @@ export default function HeroSection({ slides, interval = 4000 }: Props) {
             rounded-xl shadow-2xl
             active:scale-95 transition-transform
           "
+            onClick={() => handleViewProduct(current.productName)}
           >
             Shop now
           </button>
