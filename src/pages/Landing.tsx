@@ -117,7 +117,7 @@ const Landing: React.FC = () => {
                 </button>
             </div>
 
-            <Footer />
+            <Footer alt />
         </main>
     );
 };
