@@ -8,6 +8,7 @@ import type { CartItem } from "../types/CartItem";
 import { addToCart } from "../utils/cart";
 import { handleViewProduct } from "../utils/misc";
 import toast from "react-hot-toast";
+import type { ProductColor } from "../types/Product";
 
 const ProductPage = () => {
     const { productName } = useParams();
@@ -16,6 +17,7 @@ const ProductPage = () => {
         (p) => p.name.toLowerCase().replace(/\s+/g, "-") === productName
     );
 
+    const [selectedColor, setSelectedColor] = useState<ProductColor | undefined>();
     const [qty, setQty] = useState(1);
     const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
@@ -26,10 +28,14 @@ const ProductPage = () => {
             id: product.id,
             name: product.name,
             price: product.price,
-            image: product.image,
+            image: selectedColor?.image ?? product.image,
             qty: qty,
             size: selectedSize,
+
+            colorName: selectedColor?.colorName,
+            colorHex: selectedColor?.color,
         };
+
 
         addToCart(cartItem);
 
@@ -56,8 +62,8 @@ const ProductPage = () => {
                     {/* Image */}
                     <div className="relative rounded-2xl overflow-hidden w-full">
                         <img
-                            src={product.image}
-                            alt={product.name}
+                            src={selectedColor?.image ?? product.image}
+                            alt={selectedColor?.image ?? product.name}
                             className="w-full aspect-[3/4] object-cover"
                         />
                         <button className="absolute top-3 right-3 text-gray-600 hover:text-red-500 shadow bg-white rounded-full w-8 h-8 flex justify-center items-center">
@@ -69,7 +75,7 @@ const ProductPage = () => {
                     <div className="flex flex-col">
                         {/* Title & Price */}
                         <h1 className="text-xl sm:text-2xl font-semibold capitalize text-left">
-                            {product.name}
+                            {product.name} {selectedColor?.colorName && `[${selectedColor?.colorName}]`}
                         </h1>
                         <p className="text-xl font-bold mt-1 text-left">₹{product.price}</p>
 
@@ -97,6 +103,19 @@ const ProductPage = () => {
                             </div>
                         </div>
 
+                        {/* Colors */}
+                        {
+                            product.colors.length && <div className="mt-6">
+                                <p className="text-sm font-medium mb-3 text-left">Colors</p>
+
+                                <div className="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-8 gap-2">
+                                    {
+                                        product.colors.map((color) => <button key={color.colorName} onClick={() => setSelectedColor(color)} className="border-2 h-10 w-10 rounded-full" style={{ background: color.color, borderColor: selectedColor?.image === color.image ? "black" : "transparent" }} />)
+                                    }
+                                </div>
+                            </div>
+                        }
+
                         {/* Quantity */}
                         <div className="flex items-center gap-3 mt-6 max-w-full">
                             <button
@@ -105,12 +124,9 @@ const ProductPage = () => {
                             >
                                 −
                             </button>
-                            <input
-                                type="number"
-                                className="border rounded-full px-4 py-2 text-center w-full"
-                                value={qty}
-                                onChange={(e) => setQty(Number(e.target.value))}
-                            />
+                            <p className="border rounded-full px-4 py-2 text-center w-full">
+                                {qty} dozen(s)
+                            </p>
                             <button
                                 onClick={() => setQty(qty + 1)}
                                 className="w-13.5 h-10 rounded-full border flex items-center justify-center"

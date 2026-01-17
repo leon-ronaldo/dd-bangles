@@ -289,13 +289,15 @@ const CheckoutPage = () => {
             </p>
 
             <div className="space-y-3 text-sm">
-              {cart.map((item) => (
-                <div key={item.id} className="flex justify-between text-left">
+              {cart.map((item, key) => (
+                <div key={key} className="flex justify-between text-left">
                   <span>
                     {item.name}
                     <br />
                     <span className="text-gray-400 text-xs">
-                      Size {item.size} × {item.qty}
+                      Size {item.size}
+                      {item.colorName && ` | ${item.colorName}`}
+                      × {item.qty}
                     </span>
                   </span>
                   <span>₹{item.price * item.qty}</span>

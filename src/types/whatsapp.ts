@@ -31,14 +31,30 @@ export const sendOrderToWhatsApp = (
     lines.push("ORDER ITEMS");
 
     cart.forEach((item, i) => {
+        lines.push(`${i + 1}. ${item.name}`);
+
+        if (item.colorName) {
+            lines.push(`   - Color: ${item.colorName}`);
+        }
+
         lines.push(
-            `${i + 1}. ${item.name}`,
             `   - Size: ${item.size}`,
             `   - Qty: ${item.qty}`,
-            `   - Amount: ₹${item.price * item.qty}`,
-            ""
+            `   - Amount: ₹${item.price * item.qty}`
         );
+
+        // Image preview link
+        if (item.image) {
+            const imageUrl = item.image.startsWith("http")
+                ? item.image
+                : `${window.location.origin}${item.image}`;
+
+            lines.push(`   - Image: ${imageUrl}`);
+        }
+
+        lines.push("");
     });
+
 
     lines.push("--------------------------------");
     lines.push(`TOTAL: ₹${total}`);

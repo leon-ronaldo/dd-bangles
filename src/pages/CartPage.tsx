@@ -12,15 +12,19 @@ const CartPage = () => {
         document.title = "Your cart - DD Bangles";
     }, []);
 
-    const updateQty = (id: number, delta: number) => {
+    const updateQty = (product: CartItem, delta: number) => {
         const updated = cart.map((item) =>
-            item.id === id
+            item.id === product.id &&
+                item.size === product.size &&
+                item.colorName === product.colorName
                 ? { ...item, qty: Math.max(1, item.qty + delta) }
                 : item
         );
+
         setCart(updated);
         saveCart(updated);
     };
+
 
     const removeItem = (product: CartItem) => {
         const updated = cart.filter(
@@ -48,9 +52,9 @@ const CartPage = () => {
                             <p className="text-sm text-gray-500">Your cart is empty.</p>
                         )}
 
-                        {cart.map((item) => (
+                        {cart.map((item, key) => (
                             <div
-                                key={item.id}
+                                key={key}
                                 className="flex gap-4 bg-gray-50 p-3 sm:p-4 rounded-xl"
                             >
                                 <img
@@ -67,6 +71,11 @@ const CartPage = () => {
                                     {item.size && (
                                         <p className="text-xs text-gray-500 mt-1">Size: {item.size}</p>
                                     )}
+                                    {item.colorName && (
+                                        <p className="text-xs text-gray-500">
+                                            Color: {item.colorName}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Desktop Actions */}
@@ -80,14 +89,14 @@ const CartPage = () => {
 
                                     <div className="flex items-center gap-3">
                                         <button
-                                            onClick={() => updateQty(item.id, -1)}
+                                            onClick={() => updateQty(item, -1)}
                                             className="w-8 h-8 border rounded-full"
                                         >
                                             −
                                         </button>
                                         <span className="text-sm">{item.qty}</span>
                                         <button
-                                            onClick={() => updateQty(item.id, 1)}
+                                            onClick={() => updateQty(item, 1)}
                                             className="w-8 h-8 border rounded-full"
                                         >
                                             +
