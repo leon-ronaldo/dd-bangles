@@ -1,7 +1,7 @@
 import type { CartItem } from "../types/CartItem";
 import type { CheckoutForm } from "../types/CheckoutForm";
 
-const SHOP_PHONE = "919787416631"; // replace
+const SHOP_PHONE = "916374464248"; // replace
 
 export const sendOrderToWhatsApp = (
     customer: CheckoutForm,
