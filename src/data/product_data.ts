@@ -251,7 +251,7 @@ export const products: Product[] = [
     description:
       "Premium crystal-studded bangle that adds sparkle to your festive look.",
     sizes: ["2.2", "2.4", "2.6", "2.8"],
-  
+
     colors: [
       { image: "/images/products/Tulip Drop/color (1).webp", color: "#c63a2f", colorName: "Ruby Red" },
       { image: "/images/products/Tulip Drop/color (2).webp", color: "#2f6b7a", colorName: "Peacock Blue" },
@@ -259,31 +259,183 @@ export const products: Product[] = [
       { image: "/images/products/Tulip Drop/color (4).webp", color: "#1f7c63", colorName: "Emerald Teal" },
       { image: "/images/products/Tulip Drop/color (5).webp", color: "#2473b3", colorName: "Royal Blue" },
       { image: "/images/products/Tulip Drop/color (6).webp", color: "#c87924", colorName: "Copper Orange" },
-  
+
       { image: "/images/products/Tulip Drop/color (7).webp", color: "#cf4f4f", colorName: "Coral Red" },
       { image: "/images/products/Tulip Drop/color (8).webp", color: "#2d8f7d", colorName: "Sea Green" },
       { image: "/images/products/Tulip Drop/color (9).webp", color: "#9db058", colorName: "Pista Green" },
       { image: "/images/products/Tulip Drop/color (10).webp", color: "#c52f38", colorName: "Crimson Red" },
       { image: "/images/products/Tulip Drop/color (11).webp", color: "#4b2a2a", colorName: "Coffee Brown" },
       { image: "/images/products/Tulip Drop/color (12).webp", color: "#6c7482", colorName: "Steel Grey" },
-  
+
       { image: "/images/products/Tulip Drop/color (13).webp", color: "#1f8f7a", colorName: "Jade Green" },
       { image: "/images/products/Tulip Drop/color (14).webp", color: "#2f4f9c", colorName: "Deep Blue" },
       { image: "/images/products/Tulip Drop/color (15).webp", color: "#b22f2f", colorName: "Maroon Red" },
       { image: "/images/products/Tulip Drop/color (16).webp", color: "#e05aa0", colorName: "Rani Pink" },
       { image: "/images/products/Tulip Drop/color (17).webp", color: "#f39c12", colorName: "Festival Orange" },
       { image: "/images/products/Tulip Drop/color (18).webp", color: "#78a942", colorName: "Parrot Green" },
-  
+
       { image: "/images/products/Tulip Drop/color (19).webp", color: "#1e4fa1", colorName: "Cobalt Blue" },
       { image: "/images/products/Tulip Drop/color (20).webp", color: "#2b2b2b", colorName: "Jet Black" },
       { image: "/images/products/Tulip Drop/color (21).webp", color: "#7b5b3a", colorName: "Antique Bronze" },
       { image: "/images/products/Tulip Drop/color (22).webp", color: "#d43c3c", colorName: "Classic Red" }
     ],
-  
+
     selectedColor: {
       image: "/images/products/Tulip Drop/color (1).webp",
       color: "#c63a2f",
       colorName: "Ruby Red"
     }
+  },
+  {
+    id: 8,
+    name: "Rain Drop",
+    price: 105,
+    rating: 4.7,
+    image: "/images/products/Rain Drop/color (1).webp",
+    description:
+      "Elegant rain drop textured bangle with glossy bead finish, perfect for daily wear and festive styling.",
+    sizes: ["2.2", "2.4", "2.6", "2.8"],
+    colors: [
+      { image: "/images/products/Rain Drop/color (1).webp", color: "#c2185b", colorName: "Deep Pink" },
+      { image: "/images/products/Rain Drop/color (2).webp", color: "#0fa3a0", colorName: "Aqua Teal" },
+      { image: "/images/products/Rain Drop/color (3).webp", color: "#d32f2f", colorName: "Crimson Red" },
+      { image: "/images/products/Rain Drop/color (4).webp", color: "#7c8f4a", colorName: "Olive Green" },
+      { image: "/images/products/Rain Drop/color (5).webp", color: "#e39b1c", colorName: "Mustard Gold" },
+      { image: "/images/products/Rain Drop/color (6).webp", color: "#1e88e5", colorName: "Royal Blue" },
+      { image: "/images/products/Rain Drop/color (7).webp", color: "#b71c1c", colorName: "Dark Red" },
+      { image: "/images/products/Rain Drop/color (8).webp", color: "#00796b", colorName: "Emerald Teal" },
+      { image: "/images/products/Rain Drop/color (9).webp", color: "#c9a03a", colorName: "Antique Gold" },
+      { image: "/images/products/Rain Drop/color (10).webp", color: "#a61b1b", colorName: "Ruby Red" },
+      { image: "/images/products/Rain Drop/color (11).webp", color: "#283593", colorName: "Navy Blue" },
+      { image: "/images/products/Rain Drop/color (12).webp", color: "#8d6e63", colorName: "Bronze Brown" },
+      { image: "/images/products/Rain Drop/color (13).webp", color: "#e91e63", colorName: "Hot Pink" },
+    ],
+
+    selectedColor: {
+      image: "/images/products/Rain Drop/color (1).webp",
+      color: "#c2185b",
+      colorName: "Deep Pink"
+    }
+  },
+  {
+    id: 9,
+    name: "Kalyana Valaiyal",
+    price: 85,
+    rating: 4.7,
+    image: "/images/products/Kalyana Valaiyal/color (1).webp",
+    description:
+      "Marvelous wedding vibe bangle with glittery finish, perfect for daily wear and marriage styling.",
+    sizes: ["2.2", "2.4", "2.6", "2.8"],
+    colors: [
+      { image: "/images/products/Kalyana Valaiyal/color (1).webp", color: "#b77745", colorName: "Golden" },
+    ],
+
+    selectedColor: {
+      image: "/images/products/Kalyana Valaiyal/color (1).webp",
+      color: "#b77745",
+      colorName: "Golden"
+    }
+  },
+  {
+    id: 10,
+    name: "Kundhavi Drop",
+    price: 100,
+    rating: 4.8,
+    image: "/images/products/Kundhavi Drop/color (1).webp",
+    description:
+      "Premium kundhavi drop styled bangle with dense bead texture and rich color finish, designed for traditional and festive elegance.",
+    sizes: ["2.2", "2.4", "2.6", "2.8"],
+    colors: [
+      { image: "/images/products/Kundhavi Drop/color (1).webp", color: "#cf4a5c", colorName: "Coral Rose" },
+      { image: "/images/products/Kundhavi Drop/color (2).webp", color: "#f39c12", colorName: "Sunset Orange" },
+      { image: "/images/products/Kundhavi Drop/color (3).webp", color: "#1f3d3a", colorName: "Deep Teal" },
+      { image: "/images/products/Kundhavi Drop/color (4).webp", color: "#d2694c", colorName: "Terracotta Peach" },
+      { image: "/images/products/Kundhavi Drop/color (5).webp", color: "#1e4fb3", colorName: "Royal Sapphire" },
+      { image: "/images/products/Kundhavi Drop/color (6).webp", color: "#2f7d4f", colorName: "Forest Green" },
+      { image: "/images/products/Kundhavi Drop/color (7).webp", color: "#7b2c44", colorName: "Wine Plum" },
+      { image: "/images/products/Kundhavi Drop/color (8).webp", color: "#9fa45d", colorName: "Olive Gold" },
+      { image: "/images/products/Kundhavi Drop/color (9).webp", color: "#b84d1a", colorName: "Rust Copper" },
+      { image: "/images/products/Kundhavi Drop/color (10).webp", color: "#1aa29c", colorName: "Sea Green" },
+      { image: "/images/products/Kundhavi Drop/color (11).webp", color: "#3f245e", colorName: "Royal Purple" },
+      { image: "/images/products/Kundhavi Drop/color (12).webp", color: "#d16a1a", colorName: "Amber Orange" },
+      { image: "/images/products/Kundhavi Drop/color (13).webp", color: "#88b83f", colorName: "Lime Green" },
+      { image: "/images/products/Kundhavi Drop/color (14).webp", color: "#c62828", colorName: "Classic Red" },
+      { image: "/images/products/Kundhavi Drop/color (15).webp", color: "#1a1f26", colorName: "Jet Black" },
+      { image: "/images/products/Kundhavi Drop/color (16).webp", color: "#1c5f7d", colorName: "Steel Blue" },
+
+      { image: "/images/products/Kundhavi Drop/color (17).webp", color: "#134c3a", colorName: "Bottle Green" },
+      { image: "/images/products/Kundhavi Drop/color (18).webp", color: "#c8911e", colorName: "Antique Gold" },
+      { image: "/images/products/Kundhavi Drop/color (19).webp", color: "#222222", colorName: "Matte Black" },
+      { image: "/images/products/Kundhavi Drop/color (20).webp", color: "#c43737", colorName: "Cherry Red" },
+      { image: "/images/products/Kundhavi Drop/color (21).webp", color: "#d2b04c", colorName: "Soft Gold" },
+      { image: "/images/products/Kundhavi Drop/color (22).webp", color: "#91a83d", colorName: "Apple Green" },
+      { image: "/images/products/Kundhavi Drop/color (23).webp", color: "#b61f2c", colorName: "Ruby Crimson" },
+      { image: "/images/products/Kundhavi Drop/color (24).webp", color: "#74232b", colorName: "Maroon Wine" },
+      { image: "/images/products/Kundhavi Drop/color (25).webp", color: "#e0ad22", colorName: "Bright Mustard" },
+      { image: "/images/products/Kundhavi Drop/color (26).webp", color: "#4a7b42", colorName: "Leaf Green" },
+      { image: "/images/products/Kundhavi Drop/color (27).webp", color: "#53215e", colorName: "Dark Violet" },
+      { image: "/images/products/Kundhavi Drop/color (28).webp", color: "#233333", colorName: "Charcoal Green" },
+      { image: "/images/products/Kundhavi Drop/color (29).webp", color: "#1fa06f", colorName: "Emerald Green" },
+      { image: "/images/products/Kundhavi Drop/color (30).webp", color: "#9bb56c", colorName: "Pista Green" },
+      { image: "/images/products/Kundhavi Drop/color (31).webp", color: "#36404a", colorName: "Gunmetal Gray" },
+      { image: "/images/products/Kundhavi Drop/color (32).webp", color: "#8f2233", colorName: "Berry Red" },
+      { image: "/images/products/Kundhavi Drop/color (33).webp", color: "#0d5a85", colorName: "Deep Ocean Blue" },
+    ],
+
+    selectedColor: {
+      image: "/images/products/Kundhavi Drop/color (1).webp",
+      color: "#cf4a5c",
+      colorName: "Coral Rose"
+    }
+  },
+  {
+    id: 11,
+    name: "Glitter Bangle (Stone)",
+    price: 130,
+    rating: 4.9,
+    image: "/images/products/Glitter Bangle (Stone)/color (1).webp",
+    description:
+      "Premium stone-studded glitter bangle with sparkling crystal texture and elegant gold finish, perfect for weddings and festive occasions.",
+    sizes: ["2.2", "2.4", "2.6", "2.8"],
+    colors: [
+      {
+        image: "/images/products/Glitter Bangle (Stone)/color (1).webp",
+        color: "#c9b37c",
+        colorName: "Champagne Gold"
+      }
+    ],
+
+    selectedColor: {
+      image: "/images/products/Glitter Bangle (Stone)/color (1).webp",
+      color: "#c9b37c",
+      colorName: "Champagne Gold"
+    }
+  },
+  {
+    id: 12,
+    name: "Glitter Bangle (Pearl)",
+    price: 100,
+    rating: 4.8,
+    image: "/images/products/Glitter Bangle (Pearl)/color (1).webp",
+    description:
+      "Elegant pearl-finish glitter bangle with smooth shimmer texture and rich golden tone, ideal for daily wear and festive styling.",
+    sizes: ["2.2", "2.4", "2.6", "2.8"],
+    colors: [
+      {
+        image: "/images/products/Glitter Bangle (Pearl)/color (1).webp",
+        color: "#d4b86a",
+        colorName: "Soft Pearl Gold"
+      }
+    ],
+
+    selectedColor: {
+      image: "/images/products/Glitter Bangle (Pearl)/color (1).webp",
+      color: "#d4b86a",
+      colorName: "Soft Pearl Gold"
+    }
   }
+
+
+
+
 ];
